@@ -1,4 +1,4 @@
-#!env/bin/python3
+#!/usr/bin/env python
 from flask import Flask, Response
 from prometheus_client import Gauge, generate_latest
 import xml.etree.ElementTree as ET
