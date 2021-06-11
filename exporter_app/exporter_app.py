@@ -15,7 +15,7 @@ def passenger_status():
         results_dict = {}
 
         # Query passenger
-        passenger_stat = os.popen("passenger-status --show=xml 2>/dev/null")
+        passenger_stat = os.popen("/usr/sbin/passenger-status --show=xml 2>/dev/null")
         tree = ET.fromstring(passenger_stat.read())
         # tree = ET.fromstring(xml)
 
@@ -78,8 +78,8 @@ app = Flask(__name__)
 
 
 # Create metrics route
-@app.route('/')
-def root():
+@app.route('/metrics')
+def metrics():
     metrics = passenger_status()
     content_type = str('text/plain; version=0.0.4; charset=utf-8')
 
